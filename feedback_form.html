@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Campaign Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            color: #009879;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+            width: 100%;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: calc(100% - 22px); /* Adjusted width to account for padding and border */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensures padding and border are included in width calculation */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        input[type="submit"],
+        .view-results {
+            background-color: #009879; /* Adjusted to match table header background color */
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px; /* Slightly adjusted padding */
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            width: 48%; /* Adjusted width for two buttons side by side */
+            text-align: center;
+            text-decoration: none; /* Remove default link underline */
+            box-sizing: border-box; /* Ensures padding and border are included in width calculation */
+        }
+
+        input[type="submit"]:hover,
+        .view-results:hover {
+            background-color: #007f6e; /* Darker shade on hover */
+        }
+
+        @media (max-width: 600px) {
+            form {
+                max-width: 90%;
+            }
+
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            input[type="submit"],
+            .view-results {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <form id="feedbackForm" action="submit_feedback.php" method="post">
+        <h2>Campaign Feedback</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="feedback">Feedback:</label>
+        <textarea id="feedback" name="feedback" rows="4" cols="50" required></textarea>
+
+        <label for="rating">Rating:</label>
+        <select id="rating" name="rating" required>
+            <option value="">Select...</option>
+            <option value="1">Poor</option>
+            <option value="2">Fair</option>
+            <option value="3">Good</option>
+            <option value="4">Very Good</option>
+            <option value="5">Excellent</option>
+        </select>
+
+        <div class="button-container">
+            <input type="submit" value="Submit">
+            <a href="view_feedback.php" class="view-results">View Feedback Results</a>
+        </div>
+    </form>
+</body>
+</html>
